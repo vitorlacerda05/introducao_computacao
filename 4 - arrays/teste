@@ -1,0 +1,52 @@
+import math
+
+#Definir a lista e variáveis iniciais
+s = input("Qual seu nome?: ")
+n = input("Digite um número entre 1 e 10: ")
+nomes = []
+numeros = []
+
+#Comando while para entrada de dados e adicionar na lista
+while len(s) > 0 :
+	nomes.append(s)
+	s = input("Qual seu nome?: ")
+	x = int(n)
+	numeros.append(x)
+	n = input("Digite um número entre 1 e 10: ")
+
+
+#Saída dos dados que foram recebidos
+print ("")
+print ("Os nomes dos jogadores são:", nomes)
+print ("Os numeros digitados pelos jogadores são:", numeros)
+
+i = -1
+while len(nomes) != 0:
+	i += 1 #esse i é para mudar para o próximo jogador na contagem
+	
+	#Somar os números digitados
+	print ("")
+	soma = 0
+	for x in numeros:
+		soma = soma + x
+	print ("A soma dos números digitados é:",soma)
+	
+	soma = soma - 1
+	
+	#Retirar o jogador da soma
+	nomesf = soma * 10 * nomes
+	eliminar = nomesf[(soma + i)]
+	print("O jogador eliminado foi:", eliminar)
+	posicao = nomes.index(eliminar) #para pegar a posição do jogador
+	nomes.remove(eliminar)
+	
+	#Retirar o número do jogador da lista
+	numeros.pop(posicao)
+	
+	print ("Os nomes dos jogadores restantes são:", nomes)
+	
+	if len(nomes) == 1:
+		print ("")
+		print ("O jogador vencedor é", nomes)
+		break
+
